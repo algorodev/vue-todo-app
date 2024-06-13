@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Todo App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet"/>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
-    <script src="app.js" defer></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Todo App</title>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet"/>
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+	<script src="app.js" defer></script>
 </head>
 <body>
-<header>
-    <h1>Todo App</h1>
-</header>
-<section id="todo-app">
-    <form id="todo-form" @submit.prevent="addTodo">
-        <label for="todo-input">What to do?</label>
-        <input id="todo-input" type="text" v-model="inputValue">
-        <button type="submit">Add Task</button>
-    </form>
-    <p v-if="todos.length === 0">No tasks have been added yet - please start adding some!</p>
-    <ul id="todo-list" v-else>
-        <li v-for="(todo, index) in todos" @click="removeTodo(index)">{{ todo }}</li>
-    </ul>
-</section>
+	<header>
+		<h1>Todo App</h1>
+	</header>
+	<section id="todo-app">
+		<form id="todo-form" @submit.prevent="addTodo">
+			<label for="todo-input">What to do?</label>
+			<input id="todo-input" type="text" v-model="inputValue">
+			<button type="submit">Add Task</button>
+		</form>
+		<p v-if="todos.length === 0">No tasks have been added yet - please start adding some!</p>
+		<ul id="todo-list" v-else>
+			<li v-for="(todo, index) in todos" @click="removeTodo(index)">{{ todo }}</li>
+		</ul>
+	</section>
 </body>
 </html>
