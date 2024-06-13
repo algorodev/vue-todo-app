@@ -15,13 +15,14 @@
     <h1>Todo App</h1>
 </header>
 <section id="todo-app">
-    <form id="todo-form">
+    <form id="todo-form" @submit.prevent="addTodo">
         <label for="todo-input">What to do?</label>
-        <input id="todo-input" type="text">
-        <button>Add Task</button>
+        <input id="todo-input" type="text" v-model="inputValue">
+        <button type="submit">Add Task</button>
     </form>
-    <ul id="todo-list">
-        <li>I'm an example of a task</li>
+    <p v-if="todos.length === 0">No tasks have been added yet - please start adding some!</p>
+    <ul id="todo-list" v-else>
+        <li v-for="(todo, index) in todos" @click="removeTodo(index)">{{ todo }}</li>
     </ul>
 </section>
 </body>
